@@ -1,0 +1,151 @@
+{
+  "schema_version": "1",
+  "url": "https://example.hu",
+  "final_url": "https://www.example.hu/",
+  "timestamp": "2026-10-28T12:00:00Z",
+  "locale": "hu",
+  "tier": 1,
+  "score": 61.5,
+  "sub_scores": {
+    "datedness": 75,
+    "performance": 40
+  },
+  "weights": {
+    "datedness": 1,
+    "performance": 1
+  },
+  "flags": [
+    "broken_contact_form"
+  ],
+  "checks": [
+    {
+      "id": "contact_form",
+      "category": "contact",
+      "status": "fail",
+      "flag": "broken_contact_form",
+      "explanation": "The contact form submits to a page that does not exist.",
+      "evidence": {
+        "action": "https://www.example.hu/contact.php",
+        "status": 404
+      }
+    }
+  ],
+  "legal_gaps": [
+    {
+      "id": "legal_provider_details",
+      "category": "legal",
+      "status": "fail",
+      "explanation": "Could not find provider details (impresszum).",
+      "evidence": {
+        "pages_searched": [
+          "https://www.example.hu/"
+        ]
+      }
+    }
+  ],
+  "pagespeed": {
+    "strategy": "mobile",
+    "scores": {
+      "performance": 0.6
+    },
+    "audits": {
+      "font-size": 0,
+      "viewport": 1
+    }
+  },
+  "accessibility": {
+    "axe_version": "4.x",
+    "by_impact": {
+      "serious": 3
+    },
+    "violations": [
+      {
+        "rule": "color-contrast",
+        "impact": "serious",
+        "nodes": 3,
+        "examples": [
+          "footer p"
+        ]
+      }
+    ]
+  },
+  "assessment": {
+    "rating": 4,
+    "confidence": "medium",
+    "reasons": [
+      {
+        "subject": "check: table_layout",
+        "detail": "Layout built from tables."
+      }
+    ],
+    "rubric_version": "v1",
+    "model": "claude-opus-5-5",
+    "input_tokens": 4000,
+    "output_tokens": 600,
+    "cost_usd": 0.028
+  },
+  "agent": {
+    "prompt_version": "v1",
+    "model": "claude-opus-5-5",
+    "stopped_by": "submit",
+    "pages": [
+      {
+        "url": "https://www.example.hu/arkalkulator",
+        "reason": "The menu's quote link may lead to the enquiry form.",
+        "final_url": "https://www.example.hu/arkalkulator",
+        "status": 200
+      },
+      {
+        "url": "https://www.example.hu/referenciak",
+        "reason": "References may show inner pages.",
+        "status": 404,
+        "error": "answered with HTTP 404"
+      }
+    ],
+    "screenshots_viewed": 1,
+    "budgets": {
+      "max_pages": 5,
+      "max_screenshots": 3,
+      "max_turns": 12,
+      "max_cost_usd": 0.5
+    },
+    "turns": 4,
+    "input_tokens": 24000,
+    "output_tokens": 1800,
+    "cost_usd": 0.132,
+    "changed": {
+      "checks": [
+        {
+          "id": "contact_form",
+          "from": "not_applicable",
+          "to": "fail"
+        }
+      ],
+      "legal_gaps_resolved": [
+        "legal_provider_details"
+      ],
+      "legal_gaps_added": [],
+      "rating": {
+        "from": 3,
+        "to": 4
+      },
+      "tier": {
+        "from": 2,
+        "to": 1
+      }
+    }
+  },
+  "components": {
+    "agent": {
+      "status": "ok"
+    },
+    "assessment": {
+      "status": "ok"
+    },
+    "pagespeed": {
+      "status": "ok"
+    }
+  },
+  "cost_usd": 0.16,
+  "duration_ms": 31000
+}

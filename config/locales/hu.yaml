@@ -1,0 +1,37 @@
+# Hungarian locale: page discovery and legal-gap rules.
+# Legal patterns summarize the provider-information duties of the Hungarian
+# e-commerce act (Ekertv., 2001. évi CVIII. törvény, 4. §) and GDPR privacy
+# notices. Confirm them against the statute text before relying on findings.
+code: hu
+
+contact:
+  # Link texts are matched case-insensitively as substrings; paths are tried
+  # in order only when no homepage link matches.
+  # In order of preference: words that name a form (quote request, "write to
+  # us") come first, because only one contact page is inspected and a page
+  # with the enquiry form tells more than a plain address page.
+  # "jelentkezés" (sign-up) is where many service businesses put their enquiry form.
+  link_keywords: [ajánlatkérés, írjon nekünk, kapcsolat, elérhetőség, elérhetőségek, jelentkezés, contact]
+  paths: [/kapcsolat, /elerhetoseg, /elerhetosegek, /kapcsolat.html, /elerhetoseg.html, /jelentkezes, /contact]
+
+legal_page:
+  link_keywords: [impresszum, impressum, jogi nyilatkozat, cégadatok, szolgáltató adatai]
+  paths: [/impresszum, /impressum, /jogi-nyilatkozat, /cegadatok]
+  # Many sites without an impresszum put the provider details (company name,
+  # registered office, tax number) in their terms or privacy notice instead.
+  # These pages are only read for provider details; nothing is claimed about
+  # the terms themselves.
+  fallback_link_keywords: [általános szerződési feltételek, ászf, adatkezelési tájékoztató, adatvédelmi tájékoztató, adatkezelés, adatvédelem]
+
+legal:
+  provider_details:
+    # A gap is reported when fewer than min_matches of these are found across
+    # the homepage, contact page and legal page.
+    min_matches: 3
+    patterns:
+      registration_number: '(?i)(Cg\.?\s*\d{2}-\d{2}-\d{6}|cégjegyzékszám|nyilvántartási szám)'
+      tax_number: '\b\d{8}-\d-\d{2}\b'
+      email: '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'
+      postal_address: '\b[1-9]\d{3}\s+[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+'
+      labels: '(?i)(adószám|székhely|cégnév|képviselő)'
+  privacy_link_keywords: [adatkezelési tájékoztató, adatvédelmi tájékoztató, adatkezelés, adatvédelem, gdpr, privacy]

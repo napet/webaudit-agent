@@ -1,0 +1,50 @@
+{
+  "home": {
+    "requested_url": "https://127.0.0.1:57077/",
+    "final_url": "https://127.0.0.1:57077/",
+    "status": 200,
+    "load_ms": 134,
+    "html": "\u003chtml lang=\"hu\"\u003e\u003chead\u003e\n  \u003cmeta charset=\"utf-8\"\u003e\n  \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\n  \u003ctitle\u003eZöldkert – kertépítés és kertfenntartás\u003c/title\u003e\n  \u003cmeta name=\"description\" content=\"Kertépítés, öntözőrendszerek és kertfenntartás Pest megyében.\"\u003e\n  \u003cstyle\u003e\n    body { font-family: system-ui, sans-serif; margin: 0; color: #1d2b1f; }\n    header, footer { padding: 1rem 2rem; }\n    nav a { margin-right: 1rem; }\n    .hero { padding: 4rem 2rem; background: #eef6ee; }\n    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; padding: 2rem; }\n  \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n  \u003c!-- None of these link texts or paths match the hu locale's contact or\n       legal-page rules, so v1 finds neither the quote form nor the company\n       details. The agent can reach both from here. --\u003e\n  \u003cheader\u003e\n    \u003cnav\u003e\n      \u003ca href=\"/\"\u003eKezdőlap\u003c/a\u003e\n      \u003ca href=\"/szolgaltatasok\"\u003eSzolgáltatások\u003c/a\u003e\n      \u003ca href=\"/arak\"\u003eÁrak\u003c/a\u003e\n      \u003ca href=\"/rolunk\"\u003eRólunk\u003c/a\u003e\n      \u003ca href=\"/arkalkulator\"\u003eKérjen árat\u003c/a\u003e\n    \u003c/nav\u003e\n  \u003c/header\u003e\n  \u003cmain\u003e\n    \u003csection class=\"hero\"\u003e\u003ch1\u003eKertje jó kezekben\u003c/h1\u003e\u003cp\u003eTervezés, kivitelezés és gondozás egy kézből.\u003c/p\u003e\u003c/section\u003e\n    \u003csection class=\"grid\"\u003e\n      \u003carticle\u003e\u003ch2\u003eKertépítés\u003c/h2\u003e\u003cp\u003eGyepszőnyeg, térkő, ágyások.\u003c/p\u003e\u003c/article\u003e\n      \u003carticle\u003e\u003ch2\u003eÖntözőrendszer\u003c/h2\u003e\u003cp\u003eAutomata öntözés tervezéssel.\u003c/p\u003e\u003c/article\u003e\n      \u003carticle\u003e\u003ch2\u003eKertfenntartás\u003c/h2\u003e\u003cp\u003eFűnyírás, metszés, lombgyűjtés.\u003c/p\u003e\u003c/article\u003e\n    \u003c/section\u003e\n  \u003c/main\u003e\n  \u003cfooter\u003e\n    \u003cp\u003e© 2026 Zöldkert · Telefon: +36 30 123 4567 · \u003ca href=\"/rolunk/ceginfo\"\u003eCéginformáció\u003c/a\u003e\u003c/p\u003e\n  \u003c/footer\u003e\n\n\n\u003c/body\u003e\u003c/html\u003e",
+    "doctype": "html",
+    "requests": [
+      {
+        "url": "https://127.0.0.1:57077/",
+        "method": "GET",
+        "type": "Document",
+        "status": 200
+      },
+      {
+        "url": "https://127.0.0.1:57077/favicon.ico",
+        "method": "GET",
+        "type": "Other",
+        "status": 404
+      }
+    ]
+  },
+  "mobile": {
+    "scroll_width": 390,
+    "viewport_width": 390,
+    "overflow": false,
+    "widest": "header",
+    "widest_right": 390
+  },
+  "summary": "Title: Zöldkert – kertépítés és kertfenntartás\nMeta description: Kertépítés, öntözőrendszerek és kertfenntartás Pest megyében.\nLanguage: hu\nHeadings:\n  h1 Kertje jó kezekben\n  h2 Kertépítés\n  h2 Öntözőrendszer\n  h2 Kertfenntartás\nNavigation: Kezdőlap | Szolgáltatások | Árak | Rólunk | Kérjen árat\nFooter: © 2026 Zöldkert · Telefon: +36 30 123 4567 · Céginformáció\nLayout tables: 0\nFlash/obsolete embeds: 0\n",
+  "axe": {
+    "version": "4.10.2",
+    "violations": []
+  },
+  "axe_version": "4.10.2",
+  "guessed_paths": {
+    "/cegadatok": 404,
+    "/contact": 404,
+    "/elerhetoseg": 404,
+    "/elerhetoseg.html": 404,
+    "/elerhetosegek": 404,
+    "/impressum": 404,
+    "/impresszum": 404,
+    "/jelentkezes": 404,
+    "/jogi-nyilatkozat": 404,
+    "/kapcsolat": 404,
+    "/kapcsolat.html": 404
+  }
+}

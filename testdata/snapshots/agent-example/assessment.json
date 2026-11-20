@@ -1,0 +1,15 @@
+{
+  "rating": 2,
+  "confidence": "high",
+  "reasons": [
+    {
+      "subject": "hero",
+      "detail": "Clean, current layout."
+    }
+  ],
+  "rubric_version": "v1",
+  "model": "claude-opus-5-5",
+  "input_tokens": 15000,
+  "output_tokens": 900,
+  "cost_usd": 0.0975
+}

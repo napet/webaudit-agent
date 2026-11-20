@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Süti banner</title></head>
+<body>
+  <main><h1>Fodrászat</h1><p>Időpontfoglalás telefonon.</p></main>
+  <!-- A consent banner: accepting sets a cookie. The tool must never click it. -->
+  <div id="cookie-banner" role="dialog">
+    <p>Ez az oldal sütiket használ.</p>
+    <button id="accept" onclick="document.cookie='consent=accepted; path=/'; this.parentNode.remove()">Elfogadom</button>
+    <button id="reject" onclick="document.cookie='consent=rejected; path=/'; this.parentNode.remove()">Elutasítom</button>
+  </div>
+</body>
+</html>

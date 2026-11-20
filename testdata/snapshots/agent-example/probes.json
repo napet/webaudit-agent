@@ -1,0 +1,13 @@
+{
+  "tls": {
+    "address": "127.0.0.1:57077",
+    "valid": true,
+    "not_after": "2084-01-29T16:00:00Z",
+    "issuer": "O=Acme Co"
+  },
+  "plain_http": {
+    "url": "http://127.0.0.1/",
+    "method": "GET",
+    "error": "Get \"http://127.0.0.1/\": dial tcp 127.0.0.1:80: connectex: No connection could be made because the target machine actively refused it."
+  }
+}

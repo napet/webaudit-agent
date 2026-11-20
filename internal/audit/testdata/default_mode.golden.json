@@ -1,0 +1,226 @@
+{
+  "schema_version": "1",
+  "url": "https://agentsite.test/",
+  "final_url": "https://agentsite.test/",
+  "timestamp": "2026-10-28T12:00:00Z",
+  "locale": "hu",
+  "tier": 2,
+  "score": 16.3,
+  "sub_scores": {
+    "accessibility": 5,
+    "datedness": 50,
+    "legal": 50,
+    "mobile": 0,
+    "performance": 9,
+    "security": 0,
+    "staleness": 0
+  },
+  "weights": {
+    "accessibility": 1,
+    "datedness": 1,
+    "legal": 1,
+    "mobile": 1,
+    "performance": 1,
+    "security": 1,
+    "staleness": 1
+  },
+  "flags": [],
+  "checks": [
+    {
+      "id": "site_error_or_slow",
+      "category": "performance",
+      "status": "pass",
+      "explanation": "The homepage loads without errors in reasonable time.",
+      "evidence": {
+        "load_ms": 800,
+        "status": 200
+      }
+    },
+    {
+      "id": "https",
+      "category": "security",
+      "status": "pass",
+      "explanation": "The site uses HTTPS with a valid certificate.",
+      "evidence": {
+        "certificate_expires": "2084-01-29",
+        "final_url": "https://agentsite.test/",
+        "issuer": "O=Acme Co"
+      }
+    },
+    {
+      "id": "mobile_usability",
+      "category": "mobile",
+      "status": "pass",
+      "explanation": "The site adapts to phone screens.",
+      "evidence": {
+        "viewport_meta": "width=device-width, initial-scale=1"
+      }
+    },
+    {
+      "id": "pagespeed_performance",
+      "category": "performance",
+      "status": "pass",
+      "explanation": "Google's PageSpeed test rates mobile performance 91/100.",
+      "evidence": {
+        "lighthouse_performance": 0.91
+      }
+    },
+    {
+      "id": "accessibility_axe",
+      "category": "accessibility",
+      "status": "error",
+      "explanation": "The check could not run."
+    },
+    {
+      "id": "stale_copyright",
+      "category": "staleness",
+      "status": "pass",
+      "explanation": "The copyright year is current.",
+      "evidence": {
+        "current_year": 2026,
+        "text": "© 2026",
+        "year": 2026
+      }
+    },
+    {
+      "id": "old_jquery",
+      "category": "staleness",
+      "status": "not_applicable",
+      "explanation": "The site does not load jQuery."
+    },
+    {
+      "id": "table_layout",
+      "category": "staleness",
+      "status": "pass",
+      "explanation": "The layout does not use tables.",
+      "evidence": {
+        "nested_tables": 0,
+        "top_level_tables": 0
+      }
+    },
+    {
+      "id": "obsolete_markup",
+      "category": "staleness",
+      "status": "pass",
+      "explanation": "No obsolete HTML elements found."
+    },
+    {
+      "id": "html5_doctype",
+      "category": "staleness",
+      "status": "pass",
+      "explanation": "The page uses the HTML5 doctype.",
+      "evidence": {
+        "doctype": "html"
+      }
+    },
+    {
+      "id": "contact_form",
+      "category": "contact",
+      "status": "not_applicable",
+      "explanation": "No contact form found.",
+      "evidence": {
+        "page": "https://agentsite.test/"
+      }
+    },
+    {
+      "id": "legal_provider_details",
+      "category": "legal",
+      "status": "fail",
+      "explanation": "Could not find the business's provider details (impresszum): only 1 of the expected items appear on the pages checked.",
+      "evidence": {
+        "found": [
+          "postal_address"
+        ],
+        "min_matches": 3,
+        "not_found": [
+          "email",
+          "labels",
+          "registration_number",
+          "tax_number"
+        ],
+        "pages_searched": [
+          "https://agentsite.test/"
+        ]
+      }
+    },
+    {
+      "id": "legal_privacy_notice",
+      "category": "legal",
+      "status": "not_applicable",
+      "explanation": "No form collects personal data, so this was not checked."
+    },
+    {
+      "id": "legal_tracking_before_consent",
+      "category": "legal",
+      "status": "pass",
+      "explanation": "No tracking was seen before the visitor made a consent choice."
+    }
+  ],
+  "legal_gaps": [
+    {
+      "id": "legal_provider_details",
+      "category": "legal",
+      "status": "fail",
+      "explanation": "Could not find the business's provider details (impresszum): only 1 of the expected items appear on the pages checked.",
+      "evidence": {
+        "found": [
+          "postal_address"
+        ],
+        "min_matches": 3,
+        "not_found": [
+          "email",
+          "labels",
+          "registration_number",
+          "tax_number"
+        ],
+        "pages_searched": [
+          "https://agentsite.test/"
+        ]
+      }
+    }
+  ],
+  "pagespeed": {
+    "strategy": "mobile",
+    "scores": {
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "performance": 0.91,
+      "seo": 0.9
+    },
+    "audits": {
+      "viewport": 1
+    }
+  },
+  "assessment": {
+    "rating": 3,
+    "confidence": "high",
+    "reasons": [
+      {
+        "subject": "fixture",
+        "detail": "fake"
+      }
+    ],
+    "rubric_version": "v1",
+    "model": "fake",
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd": 0.01
+  },
+  "components": {
+    "assessment": {
+      "status": "ok"
+    },
+    "capture": {
+      "status": "ok"
+    },
+    "pagespeed": {
+      "status": "ok"
+    }
+  },
+  "notes": [
+    "Google has no real-user field data for this site; PageSpeed figures are lab measurements only.",
+    "No contact page was found; contact-form checks ran on the homepage only."
+  ],
+  "cost_usd": 0.01,
+  "duration_ms": 0
+}

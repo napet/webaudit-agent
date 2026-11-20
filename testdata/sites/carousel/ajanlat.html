@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ajánlatkérés</title></head>
+<body>
+  <h1>Ajánlatkérés</h1>
+  <!-- Sent by script from a plain button: no action, no submit event. The id
+       contains "keres" but this is not a search form. -->
+  <form id="ajanlatkeres" name="ajanlatkeres" action="">
+    <input type="text" name="neve" placeholder="Név">
+    <input type="text" name="email">
+    <textarea name="megjegyzes"></textarea>
+    <input type="button" value="Ajánlatkérés küldése" onclick="ajanlatkeresElkuld();">
+  </form>
+  <script>function ajanlatkeresElkuld() { /* would send by XHR */ }</script>
+</body>
+</html>

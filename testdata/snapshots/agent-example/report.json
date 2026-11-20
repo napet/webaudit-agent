@@ -1,0 +1,295 @@
+{
+  "schema_version": "1",
+  "url": "https://127.0.0.1:57077/",
+  "final_url": "https://127.0.0.1:57077/",
+  "timestamp": "2026-10-28T12:00:00Z",
+  "locale": "hu",
+  "tier": 2,
+  "score": 5.2,
+  "sub_scores": {
+    "accessibility": 2.5,
+    "datedness": 25,
+    "legal": 0,
+    "mobile": 0,
+    "performance": 9,
+    "security": 0,
+    "staleness": 0
+  },
+  "weights": {
+    "accessibility": 1,
+    "datedness": 1,
+    "legal": 1,
+    "mobile": 1,
+    "performance": 1,
+    "security": 1,
+    "staleness": 1
+  },
+  "flags": [],
+  "checks": [
+    {
+      "id": "site_error_or_slow",
+      "category": "performance",
+      "status": "pass",
+      "explanation": "The homepage loads without errors in reasonable time.",
+      "evidence": {
+        "load_ms": 134,
+        "status": 200
+      }
+    },
+    {
+      "id": "https",
+      "category": "security",
+      "status": "pass",
+      "explanation": "The site uses HTTPS with a valid certificate.",
+      "evidence": {
+        "certificate_expires": "2084-01-29",
+        "final_url": "https://127.0.0.1:57077/",
+        "issuer": "O=Acme Co"
+      }
+    },
+    {
+      "id": "mobile_usability",
+      "category": "mobile",
+      "status": "pass",
+      "explanation": "The site adapts to phone screens.",
+      "evidence": {
+        "viewport_meta": "width=device-width, initial-scale=1"
+      }
+    },
+    {
+      "id": "pagespeed_performance",
+      "category": "performance",
+      "status": "pass",
+      "explanation": "Google's PageSpeed test rates mobile performance 91/100.",
+      "evidence": {
+        "lighthouse_performance": 0.91
+      }
+    },
+    {
+      "id": "accessibility_axe",
+      "category": "accessibility",
+      "status": "pass",
+      "explanation": "The automated accessibility scan found no serious problems.",
+      "evidence": {
+        "by_impact": {}
+      }
+    },
+    {
+      "id": "stale_copyright",
+      "category": "staleness",
+      "status": "pass",
+      "explanation": "The copyright year is current.",
+      "evidence": {
+        "current_year": 2026,
+        "text": "© 2026",
+        "year": 2026
+      }
+    },
+    {
+      "id": "old_jquery",
+      "category": "staleness",
+      "status": "not_applicable",
+      "explanation": "The site does not load jQuery."
+    },
+    {
+      "id": "table_layout",
+      "category": "staleness",
+      "status": "pass",
+      "explanation": "The layout does not use tables.",
+      "evidence": {
+        "nested_tables": 0,
+        "top_level_tables": 0
+      }
+    },
+    {
+      "id": "obsolete_markup",
+      "category": "staleness",
+      "status": "pass",
+      "explanation": "No obsolete HTML elements found."
+    },
+    {
+      "id": "html5_doctype",
+      "category": "staleness",
+      "status": "pass",
+      "explanation": "The page uses the HTML5 doctype.",
+      "evidence": {
+        "doctype": "html"
+      }
+    },
+    {
+      "id": "contact_form",
+      "category": "contact",
+      "status": "pass",
+      "explanation": "The contact form looks like it works (it was not submitted).",
+      "evidence": {
+        "agent_pages": [
+          "https://127.0.0.1:57077/arkalkulator",
+          "https://127.0.0.1:57077/rolunk/ceginfo"
+        ],
+        "forms": [
+          {
+            "action": "",
+            "has_handler": true,
+            "index": 0,
+            "method": "get",
+            "page": "https://127.0.0.1:57077/arkalkulator"
+          }
+        ],
+        "page": "https://127.0.0.1:57077/"
+      }
+    },
+    {
+      "id": "legal_provider_details",
+      "category": "legal",
+      "status": "pass",
+      "explanation": "Provider details (impresszum) were found.",
+      "evidence": {
+        "found": [
+          "email",
+          "labels",
+          "postal_address",
+          "registration_number",
+          "tax_number"
+        ],
+        "min_matches": 3,
+        "not_found": null,
+        "pages_searched": [
+          "https://127.0.0.1:57077/",
+          "https://127.0.0.1:57077/arkalkulator",
+          "https://127.0.0.1:57077/rolunk/ceginfo"
+        ]
+      }
+    },
+    {
+      "id": "legal_privacy_notice",
+      "category": "legal",
+      "status": "pass",
+      "explanation": "A privacy notice is linked.",
+      "evidence": {
+        "link": "/adatkezeles",
+        "on_page": "https://127.0.0.1:57077/arkalkulator"
+      }
+    },
+    {
+      "id": "legal_tracking_before_consent",
+      "category": "legal",
+      "status": "pass",
+      "explanation": "No tracking was seen before the visitor made a consent choice."
+    }
+  ],
+  "legal_gaps": [],
+  "pagespeed": {
+    "strategy": "mobile",
+    "scores": {
+      "accessibility": 0.95,
+      "best-practices": 1,
+      "performance": 0.91,
+      "seo": 0.9
+    },
+    "audits": {
+      "viewport": 1
+    }
+  },
+  "accessibility": {
+    "axe_version": "4.10.2",
+    "by_impact": {},
+    "violations": []
+  },
+  "assessment": {
+    "rating": 2,
+    "confidence": "high",
+    "reasons": [
+      {
+        "subject": "hero",
+        "detail": "Clean, current layout."
+      }
+    ],
+    "rubric_version": "v1",
+    "model": "claude-opus-5-5",
+    "input_tokens": 15000,
+    "output_tokens": 900,
+    "cost_usd": 0.0975
+  },
+  "agent": {
+    "prompt_version": "v1",
+    "model": "claude-opus-5-5",
+    "stopped_by": "submit",
+    "pages": [
+      {
+        "url": "https://127.0.0.1:57077/arkalkulator",
+        "reason": "The quote link may lead to the enquiry form.",
+        "final_url": "https://127.0.0.1:57077/arkalkulator",
+        "status": 200
+      },
+      {
+        "url": "https://127.0.0.1:57077/rolunk/ceginfo",
+        "reason": "Company details are often behind such a link.",
+        "final_url": "https://127.0.0.1:57077/rolunk/ceginfo",
+        "status": 200
+      }
+    ],
+    "screenshots_viewed": 0,
+    "budgets": {
+      "max_pages": 5,
+      "max_screenshots": 3,
+      "max_turns": 12,
+      "max_cost_usd": 0.5
+    },
+    "turns": 3,
+    "input_tokens": 15000,
+    "output_tokens": 900,
+    "cost_usd": 0.0975,
+    "changed": {
+      "checks": [
+        {
+          "id": "contact_form",
+          "from": "not_applicable",
+          "to": "pass"
+        },
+        {
+          "id": "legal_provider_details",
+          "from": "fail",
+          "to": "pass"
+        },
+        {
+          "id": "legal_privacy_notice",
+          "from": "not_applicable",
+          "to": "pass"
+        }
+      ],
+      "legal_gaps_resolved": [
+        "legal_provider_details"
+      ],
+      "legal_gaps_added": [],
+      "rating": {
+        "from": 3,
+        "to": 2
+      },
+      "tier": {
+        "from": 2,
+        "to": 2
+      }
+    }
+  },
+  "components": {
+    "agent": {
+      "status": "ok"
+    },
+    "assessment": {
+      "status": "ok"
+    },
+    "capture": {
+      "status": "ok"
+    },
+    "pagespeed": {
+      "status": "ok"
+    }
+  },
+  "notes": [
+    "Google has no real-user field data for this site; PageSpeed figures are lab measurements only.",
+    "No contact page was found; contact-form checks ran on the homepage only."
+  ],
+  "cost_usd": 0.1075,
+  "duration_ms": 5855,
+  "snapshot_path": "..\\..\\testdata\\snapshots\\.tmp\\127.0.0.1_57077\\20261028T120000Z"
+}

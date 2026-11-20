@@ -1,0 +1,49 @@
+{
+  "v1": {
+    "assessment": {
+      "rating": 3,
+      "confidence": "high",
+      "reasons": [
+        {
+          "subject": "fixture",
+          "detail": "fake"
+        }
+      ],
+      "rubric_version": "v1",
+      "model": "fake",
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cost_usd": 0.01
+    }
+  },
+  "stopped_by": "submit",
+  "prompt_version": "v1",
+  "model": "claude-opus-5-5",
+  "budgets": {
+    "max_pages": 5,
+    "max_screenshots": 3,
+    "max_turns": 12,
+    "max_cost_usd": 0.5
+  },
+  "visits": [
+    {
+      "url": "https://127.0.0.1:57077/arkalkulator",
+      "reason": "The quote link may lead to the enquiry form.",
+      "final_url": "https://127.0.0.1:57077/arkalkulator",
+      "status": 200,
+      "page": 0
+    },
+    {
+      "url": "https://127.0.0.1:57077/rolunk/ceginfo",
+      "reason": "Company details are often behind such a link.",
+      "final_url": "https://127.0.0.1:57077/rolunk/ceginfo",
+      "status": 200,
+      "page": 1
+    }
+  ],
+  "screenshots": 0,
+  "turns": 3,
+  "input_tokens": 15000,
+  "output_tokens": 900,
+  "cost_usd": 0.0975
+}

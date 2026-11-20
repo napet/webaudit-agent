@@ -1,0 +1,16 @@
+{
+  "requested_url": "https://127.0.0.1:57077/rolunk/ceginfo",
+  "final_url": "https://127.0.0.1:57077/rolunk/ceginfo",
+  "status": 200,
+  "load_ms": 22,
+  "html": "\u003chtml lang=\"hu\"\u003e\u003chead\u003e\u003cmeta charset=\"utf-8\"\u003e\u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1\"\u003e\u003ctitle\u003eCéginformáció – Zöldkert\u003c/title\u003e\u003c/head\u003e\n\u003cbody\u003e\n  \u003cnav\u003e\u003ca href=\"/\"\u003eKezdőlap\u003c/a\u003e\u003c/nav\u003e\n  \u003ch1\u003eCéginformáció\u003c/h1\u003e\n  \u003cp\u003eCégnév: Zöldkert Kertépítő Kft.\u003c/p\u003e\n  \u003cp\u003eSzékhely: 2040 Budaörs, Fő utca 12.\u003c/p\u003e\n  \u003cp\u003eCégjegyzékszám: Cg. 13-09-123456\u003c/p\u003e\n  \u003cp\u003eAdószám: 12345678-2-13\u003c/p\u003e\n  \u003cp\u003eE-mail: info@zoldkert.example\u003c/p\u003e\n\n\n\u003c/body\u003e\u003c/html\u003e",
+  "doctype": "html",
+  "requests": [
+    {
+      "url": "https://127.0.0.1:57077/rolunk/ceginfo",
+      "method": "GET",
+      "type": "Document",
+      "status": 200
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kérjen árat – Zöldkert</title>
+</head>
+<body>
+  <nav><a href="/">Kezdőlap</a> <a href="/arak">Árak</a></nav>
+  <h1>Kérjen árat kertje felújítására</h1>
+  <!-- A quote form sent by script: no action, a click handler on the button. -->
+  <form id="quote">
+    <input name="name" placeholder="Név">
+    <input type="email" name="email" placeholder="E-mail">
+    <textarea name="message" placeholder="Mekkora a kert, mit szeretne?"></textarea>
+    <button type="button" id="send">Árajánlatot kérek</button>
+  </form>
+  <p><a href="/adatkezeles">Az adatkezelésről</a></p>
+  <script>
+    document.getElementById('send').addEventListener('click', function () {
+      // A real site would fetch() its mailer here. The fixture never sends.
+      this.textContent = 'Köszönjük!';
+    });
+  </script>
+</body>
+</html>

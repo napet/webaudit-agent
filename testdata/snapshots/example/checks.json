@@ -1,0 +1,160 @@
+[
+  {
+    "id": "site_error_or_slow",
+    "category": "performance",
+    "status": "pass",
+    "explanation": "The homepage loads without errors in reasonable time.",
+    "evidence": {
+      "load_ms": 81,
+      "status": 200
+    }
+  },
+  {
+    "id": "https",
+    "category": "security",
+    "status": "pass",
+    "explanation": "The site uses HTTPS with a valid certificate.",
+    "evidence": {
+      "certificate_expires": "2084-01-29",
+      "final_url": "https://127.0.0.1:56645/",
+      "issuer": "O=Acme Co"
+    }
+  },
+  {
+    "id": "mobile_usability",
+    "category": "mobile",
+    "status": "pass",
+    "explanation": "The site adapts to phone screens.",
+    "evidence": {
+      "viewport_meta": "width=device-width, initial-scale=1"
+    }
+  },
+  {
+    "id": "pagespeed_performance",
+    "category": "performance",
+    "status": "pass",
+    "explanation": "Google's PageSpeed test rates mobile performance 91/100.",
+    "evidence": {
+      "lighthouse_performance": 0.91
+    }
+  },
+  {
+    "id": "accessibility_axe",
+    "category": "accessibility",
+    "status": "pass",
+    "explanation": "The automated accessibility scan found no serious problems.",
+    "evidence": {
+      "by_impact": {
+        "moderate": 3
+      }
+    }
+  },
+  {
+    "id": "stale_copyright",
+    "category": "staleness",
+    "status": "fail",
+    "explanation": "The copyright notice still says 2023, which suggests the site has not been updated since.",
+    "evidence": {
+      "current_year": 2026,
+      "text": "© 2023",
+      "year": 2023
+    }
+  },
+  {
+    "id": "old_jquery",
+    "category": "staleness",
+    "status": "not_applicable",
+    "explanation": "The site does not load jQuery."
+  },
+  {
+    "id": "table_layout",
+    "category": "staleness",
+    "status": "pass",
+    "explanation": "The layout does not use tables.",
+    "evidence": {
+      "nested_tables": 0,
+      "top_level_tables": 0
+    }
+  },
+  {
+    "id": "obsolete_markup",
+    "category": "staleness",
+    "status": "pass",
+    "explanation": "No obsolete HTML elements found."
+  },
+  {
+    "id": "html5_doctype",
+    "category": "staleness",
+    "status": "pass",
+    "explanation": "The page uses the HTML5 doctype.",
+    "evidence": {
+      "doctype": "html"
+    }
+  },
+  {
+    "id": "contact_form",
+    "category": "contact",
+    "status": "fail",
+    "flag": "broken_contact_form",
+    "explanation": "The contact form sends to https://127.0.0.1:56645/contact.php, which returns \"page not found\" (HTTP 404).",
+    "evidence": {
+      "forms": [
+        {
+          "action": "/contact.php",
+          "action_status": 404,
+          "action_url": "https://127.0.0.1:56645/contact.php",
+          "has_handler": false,
+          "index": 0,
+          "method": "post"
+        },
+        {
+          "action": "",
+          "has_handler": false,
+          "index": 1,
+          "method": "get"
+        }
+      ],
+      "page": "https://127.0.0.1:56645/kapcsolat"
+    }
+  },
+  {
+    "id": "legal_provider_details",
+    "category": "legal",
+    "status": "fail",
+    "explanation": "Could not find the business's provider details (impresszum): only 1 of the expected items appear on the pages checked.",
+    "evidence": {
+      "found": [
+        "postal_address"
+      ],
+      "min_matches": 3,
+      "not_found": [
+        "email",
+        "labels",
+        "registration_number",
+        "tax_number"
+      ],
+      "pages_searched": [
+        "https://127.0.0.1:56645/",
+        "https://127.0.0.1:56645/kapcsolat"
+      ]
+    }
+  },
+  {
+    "id": "legal_privacy_notice",
+    "category": "legal",
+    "status": "fail",
+    "explanation": "Could not find a privacy notice (adatkezelési tájékoztató), although the site has a form that collects personal data.",
+    "evidence": {
+      "pages_searched": [
+        "https://127.0.0.1:56645/",
+        "https://127.0.0.1:56645/kapcsolat"
+      ]
+    }
+  },
+  {
+    "id": "legal_tracking_before_consent",
+    "category": "legal",
+    "status": "pass",
+    "explanation": "No tracking was seen before the visitor made a consent choice."
+  }
+]

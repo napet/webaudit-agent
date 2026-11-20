@@ -1,0 +1,152 @@
+[
+  {
+    "id": "site_error_or_slow",
+    "category": "performance",
+    "status": "pass",
+    "explanation": "The homepage loads without errors in reasonable time.",
+    "evidence": {
+      "load_ms": 134,
+      "status": 200
+    }
+  },
+  {
+    "id": "https",
+    "category": "security",
+    "status": "pass",
+    "explanation": "The site uses HTTPS with a valid certificate.",
+    "evidence": {
+      "certificate_expires": "2084-01-29",
+      "final_url": "https://127.0.0.1:57077/",
+      "issuer": "O=Acme Co"
+    }
+  },
+  {
+    "id": "mobile_usability",
+    "category": "mobile",
+    "status": "pass",
+    "explanation": "The site adapts to phone screens.",
+    "evidence": {
+      "viewport_meta": "width=device-width, initial-scale=1"
+    }
+  },
+  {
+    "id": "pagespeed_performance",
+    "category": "performance",
+    "status": "pass",
+    "explanation": "Google's PageSpeed test rates mobile performance 91/100.",
+    "evidence": {
+      "lighthouse_performance": 0.91
+    }
+  },
+  {
+    "id": "accessibility_axe",
+    "category": "accessibility",
+    "status": "pass",
+    "explanation": "The automated accessibility scan found no serious problems.",
+    "evidence": {
+      "by_impact": {}
+    }
+  },
+  {
+    "id": "stale_copyright",
+    "category": "staleness",
+    "status": "pass",
+    "explanation": "The copyright year is current.",
+    "evidence": {
+      "current_year": 2026,
+      "text": "© 2026",
+      "year": 2026
+    }
+  },
+  {
+    "id": "old_jquery",
+    "category": "staleness",
+    "status": "not_applicable",
+    "explanation": "The site does not load jQuery."
+  },
+  {
+    "id": "table_layout",
+    "category": "staleness",
+    "status": "pass",
+    "explanation": "The layout does not use tables.",
+    "evidence": {
+      "nested_tables": 0,
+      "top_level_tables": 0
+    }
+  },
+  {
+    "id": "obsolete_markup",
+    "category": "staleness",
+    "status": "pass",
+    "explanation": "No obsolete HTML elements found."
+  },
+  {
+    "id": "html5_doctype",
+    "category": "staleness",
+    "status": "pass",
+    "explanation": "The page uses the HTML5 doctype.",
+    "evidence": {
+      "doctype": "html"
+    }
+  },
+  {
+    "id": "contact_form",
+    "category": "contact",
+    "status": "pass",
+    "explanation": "The contact form looks like it works (it was not submitted).",
+    "evidence": {
+      "agent_pages": [
+        "https://127.0.0.1:57077/arkalkulator",
+        "https://127.0.0.1:57077/rolunk/ceginfo"
+      ],
+      "forms": [
+        {
+          "action": "",
+          "has_handler": true,
+          "index": 0,
+          "method": "get",
+          "page": "https://127.0.0.1:57077/arkalkulator"
+        }
+      ],
+      "page": "https://127.0.0.1:57077/"
+    }
+  },
+  {
+    "id": "legal_provider_details",
+    "category": "legal",
+    "status": "pass",
+    "explanation": "Provider details (impresszum) were found.",
+    "evidence": {
+      "found": [
+        "email",
+        "labels",
+        "postal_address",
+        "registration_number",
+        "tax_number"
+      ],
+      "min_matches": 3,
+      "not_found": null,
+      "pages_searched": [
+        "https://127.0.0.1:57077/",
+        "https://127.0.0.1:57077/arkalkulator",
+        "https://127.0.0.1:57077/rolunk/ceginfo"
+      ]
+    }
+  },
+  {
+    "id": "legal_privacy_notice",
+    "category": "legal",
+    "status": "pass",
+    "explanation": "A privacy notice is linked.",
+    "evidence": {
+      "link": "/adatkezeles",
+      "on_page": "https://127.0.0.1:57077/arkalkulator"
+    }
+  },
+  {
+    "id": "legal_tracking_before_consent",
+    "category": "legal",
+    "status": "pass",
+    "explanation": "No tracking was seen before the visitor made a consent choice."
+  }
+]

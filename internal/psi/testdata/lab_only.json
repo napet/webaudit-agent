@@ -1,0 +1,16 @@
+{
+  "id": "https://kis-ceg.hu/",
+  "loadingExperience": {"id": "https://kis-ceg.hu/"},
+  "lighthouseResult": {
+    "lighthouseVersion": "12.6.0",
+    "categories": {
+      "performance": {"id": "performance", "score": 0.91},
+      "accessibility": {"id": "accessibility", "score": 0.95},
+      "best-practices": {"id": "best-practices", "score": 1},
+      "seo": {"id": "seo", "score": 0.9}
+    },
+    "audits": {
+      "viewport": {"id": "viewport", "score": 1}
+    }
+  }
+}

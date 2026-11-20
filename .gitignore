@@ -1,0 +1,8 @@
+/snapshots/
+testdata/snapshots/.tmp/
+/audit
+/audit.exe
+/private/
+.env
+.env.*
+.claude/settings.local.json

@@ -1,0 +1,27 @@
+{
+  "id": "https://example.hu/",
+  "loadingExperience": {
+    "id": "https://example.hu/",
+    "metrics": {
+      "LARGEST_CONTENTFUL_PAINT_MS": {"percentile": 4100, "category": "SLOW"},
+      "CUMULATIVE_LAYOUT_SHIFT_SCORE": {"percentile": 12, "category": "FAST"},
+      "INTERACTION_TO_NEXT_PAINT": {"percentile": 310, "category": "AVERAGE"}
+    },
+    "overall_category": "SLOW"
+  },
+  "lighthouseResult": {
+    "lighthouseVersion": "12.6.0",
+    "finalUrl": "https://example.hu/",
+    "categories": {
+      "performance": {"id": "performance", "score": 0.42},
+      "accessibility": {"id": "accessibility", "score": 0.71},
+      "best-practices": {"id": "best-practices", "score": 0.78},
+      "seo": {"id": "seo", "score": 0.83}
+    },
+    "audits": {
+      "viewport": {"id": "viewport", "score": 1},
+      "font-size": {"id": "font-size", "score": 0},
+      "first-contentful-paint": {"id": "first-contentful-paint", "score": 0.3}
+    }
+  }
+}

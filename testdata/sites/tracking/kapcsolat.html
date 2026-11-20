@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Kapcsolat</title></head>
+<body>
+  <h1>Kapcsolat</h1>
+  <form id="contact">
+    <input type="email" name="email">
+    <textarea name="message"></textarea>
+    <button type="submit">Küldés</button>
+  </form>
+  <script>
+    document.getElementById('contact').addEventListener('submit', function (e) {
+      e.preventDefault();
+      fetch('/api/contact', { method: 'POST', body: new FormData(this) });
+    });
+  </script>
+</body>
+</html>

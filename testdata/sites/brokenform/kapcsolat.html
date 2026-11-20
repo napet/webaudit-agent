@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Kapcsolat</title></head>
+<body>
+  <h1>Írjon nekünk</h1>
+  <!-- Submits to a PHP mailer that no longer exists after a host move. -->
+  <form action="/contact.php" method="post">
+    <input name="name" placeholder="Név">
+    <input type="email" name="email" placeholder="E-mail">
+    <textarea name="message"></textarea>
+    <input type="submit" value="Küldés">
+  </form>
+  <!-- A second form with no action and no script handler. -->
+  <form id="callback">
+    <input name="phone" placeholder="Telefonszám">
+    <textarea name="note"></textarea>
+    <button>Visszahívást kérek</button>
+  </form>
+</body>
+</html>
