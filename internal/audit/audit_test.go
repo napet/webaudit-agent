@@ -27,16 +27,42 @@ var fixedNow = time.Date(2026, 10, 28, 12, 0, 0, 0, time.UTC)
 
 // --- fakes -----------------------------------------------------------------
 
+// meeting lets fakes prove they ran at the same time: each arrival waits
+// until all have arrived, or gives up after a while. Unlike a wall-clock
+// limit, it doesn't depend on how fast the machine or its network is.
+type meeting struct {
+	n       int32
+	arrived atomic.Int32
+	all     chan struct{}
+	met     atomic.Int32
+}
+
+func newMeeting(n int32) *meeting { return &meeting{n: n, all: make(chan struct{})} }
+
+func (m *meeting) arrive() {
+	if m == nil {
+		return
+	}
+	if m.arrived.Add(1) == m.n {
+		close(m.all)
+	}
+	select {
+	case <-m.all:
+		m.met.Add(1)
+	case <-time.After(5 * time.Second):
+	}
+}
+
 type fakePSI struct {
 	raw   []byte
 	err   error
-	delay time.Duration
+	meet  *meeting
 	calls atomic.Int32
 }
 
 func (f *fakePSI) Run(ctx context.Context, _ string) (json.RawMessage, error) {
 	f.calls.Add(1)
-	time.Sleep(f.delay)
+	f.meet.arrive()
 	return f.raw, f.err
 }
 
@@ -57,13 +83,13 @@ func (f *fakeAssessor) Assess(context.Context, assess.Input) (*report.Assessment
 
 type fakeCapturer struct {
 	res   *capture.Result
-	delay time.Duration
+	meet  *meeting
 	calls atomic.Int32
 }
 
 func (f *fakeCapturer) Capture(context.Context, string) (*capture.Result, error) {
 	f.calls.Add(1)
-	time.Sleep(f.delay)
+	f.meet.arrive()
 	if f.res == nil {
 		return nil, errors.New("fake capturer: must not be called")
 	}
@@ -128,20 +154,20 @@ func staticCapture() *capture.Result {
 
 func TestPSIRunsConcurrentlyAndFailureIsContained(t *testing.T) {
 	l, s := loadConfig(t)
+	meet := newMeeting(2)
 	p := &Pipeline{
-		Capturer: &fakeCapturer{res: staticCapture(), delay: 600 * time.Millisecond},
-		PSI:      &fakePSI{err: errors.New("pagespeed: HTTP 500: backend error"), delay: 600 * time.Millisecond},
+		Capturer: &fakeCapturer{res: staticCapture(), meet: meet},
+		PSI:      &fakePSI{err: errors.New("pagespeed: HTTP 500: backend error"), meet: meet},
 		Assessor: &fakeAssessor{rating: 2},
 		HTTP:     safehttp.New(safehttp.Options{Timeout: time.Second}),
 		Locale:   l, Scoring: s, Now: func() time.Time { return fixedNow },
 	}
-	start := time.Now()
 	rep, err := p.Run(context.Background(), "https://kis-ceg.hu/")
 	if err != nil {
 		t.Fatal(err)
 	}
-	if took := time.Since(start); took > 1100*time.Millisecond {
-		t.Errorf("took %v; PSI and capture should overlap", took)
+	if n := meet.met.Load(); n != 2 {
+		t.Errorf("%d of 2 fakes saw the other running; PSI and capture should overlap", n)
 	}
 	if c := rep.Components["pagespeed"]; c.Status != "failed" || c.Error == "" {
 		t.Errorf("pagespeed component = %+v", c)
