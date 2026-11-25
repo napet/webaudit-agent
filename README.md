@@ -133,7 +133,7 @@ With `--reassess` (needs `ANTHROPIC_API_KEY`), the agent runs again from the rec
 go test ./...
 ```
 
-Tests run offline against fixture sites in `testdata/sites/`. Tests that drive Chrome skip when it is not installed, and `go test -short ./...` skips them. One test calls the real Anthropic API (and needs Chrome); it runs only when `ANTHROPIC_API_KEY` is set. Lint with `golangci-lint run`; CI runs `go vet`, golangci-lint and `go test -short ./...`.
+Tests run offline against fixture sites in `testdata/sites/`. The packages that make requests run their tests under `testsite.RunOffline`, which disables DNS and fails the run if any code looks up a host name; tests that need an unknown host to fail use `testsite.LocalOnly`, which reaches only loopback addresses. Tests that drive Chrome skip when it is not installed, and `go test -short ./...` skips them. One test calls the real Anthropic API (and needs Chrome); it runs only when `ANTHROPIC_API_KEY` is set. Lint with `golangci-lint run`; CI runs `go vet`, golangci-lint and `go test -short ./...`.
 
 Regenerating recorded test data:
 

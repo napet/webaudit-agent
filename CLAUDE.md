@@ -12,7 +12,7 @@ The baseline `audit <url>` CLI exists (Go module `github.com/napet/webaudit-agen
 - Audit a site: `go run ./cmd/audit <url>` (needs `ANTHROPIC_API_KEY`, `PSI_API_KEY` and a local Chrome)
 - Agent mode: `go run ./cmd/audit --agent <url>` (budgets under `agent` in `config/scoring.yaml`)
 - Replay a snapshot without network or LLM cost: `go run ./cmd/audit --from-snapshot <dir>` (`--reassess` re-runs only the LLM call; for an agent snapshot it re-runs the agent on the recorded pages)
-- Test: `go test ./...` (offline, against `testdata/sites/` fixtures; Chrome tests skip without Chrome or with `-short`; the live API test runs only with `ANTHROPIC_API_KEY`)
+- Test: `go test ./...` (offline, against `testdata/sites/` fixtures; `testsite.RunOffline` fails a package's tests if they look up any host name, so point probes at `testsite.LocalOnly`; Chrome tests skip without Chrome or with `-short`; the live API test runs only with `ANTHROPIC_API_KEY`)
 - Lint: `golangci-lint run` (config in `.golangci.yml`; CI runs vet, lint and `go test -short ./...`)
 
 ## Code layout

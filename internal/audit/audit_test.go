@@ -156,11 +156,12 @@ func TestPSIRunsConcurrentlyAndFailureIsContained(t *testing.T) {
 	l, s := loadConfig(t)
 	meet := newMeeting(2)
 	p := &Pipeline{
-		Capturer: &fakeCapturer{res: staticCapture(), meet: meet},
-		PSI:      &fakePSI{err: errors.New("pagespeed: HTTP 500: backend error"), meet: meet},
-		Assessor: &fakeAssessor{rating: 2},
-		HTTP:     safehttp.New(safehttp.Options{Timeout: time.Second}),
-		Locale:   l, Scoring: s, Now: func() time.Time { return fixedNow },
+		Capturer:    &fakeCapturer{res: staticCapture(), meet: meet},
+		PSI:         &fakePSI{err: errors.New("pagespeed: HTTP 500: backend error"), meet: meet},
+		Assessor:    &fakeAssessor{rating: 2},
+		HTTP:        safehttp.New(safehttp.Options{Timeout: time.Second, Transport: testsite.LocalOnlyTransport()}),
+		ProbeDialer: testsite.LocalOnly{},
+		Locale:      l, Scoring: s, Now: func() time.Time { return fixedNow },
 	}
 	rep, err := p.Run(context.Background(), "https://kis-ceg.hu/")
 	if err != nil {
@@ -186,7 +187,7 @@ func TestAssessmentFailureIsContained(t *testing.T) {
 		Capturer: &fakeCapturer{res: staticCapture()}, PSI: &fakePSI{raw: psiFixture(t)},
 		Assessor: &fakeAssessor{err: &assess.CallError{Err: errors.New("assessment refused (category cyber)"),
 			Usage: report.Usage{Model: "fake", InputTokens: 3000, OutputTokens: 1, CostUSD: 0.012}}},
-		HTTP: safehttp.New(safehttp.Options{Timeout: time.Second}), Locale: l, Scoring: s,
+		HTTP: safehttp.New(safehttp.Options{Timeout: time.Second, Transport: testsite.LocalOnlyTransport()}), ProbeDialer: testsite.LocalOnly{}, Locale: l, Scoring: s,
 		SnapshotRoot: t.TempDir(), Now: func() time.Time { return fixedNow },
 	}
 	rep, err := p.Run(context.Background(), "https://kis-ceg.hu/")

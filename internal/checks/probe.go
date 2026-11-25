@@ -50,6 +50,14 @@ type ProbeOptions struct {
 	HTTP  *http.Client   // must be the GET/HEAD-only client
 	Roots *x509.CertPool // nil: system roots
 	Now   time.Time      // certificate validity reference; zero: time.Now()
+	// Dialer opens the TCP connection for the TLS handshake; nil means a
+	// net.Dialer. Tests pass one that never leaves the machine.
+	Dialer Dialer
+}
+
+// Dialer opens network connections. *net.Dialer satisfies it.
+type Dialer interface {
+	DialContext(ctx context.Context, network, addr string) (net.Conn, error)
 }
 
 // Probe makes the network requests the checks need: a TLS handshake, the
@@ -107,19 +115,26 @@ func probeTLS(ctx context.Context, o ProbeOptions, u *url.URL) *TLSProbe {
 		port = u.Port()
 	}
 	tp := &TLSProbe{Address: net.JoinHostPort(host, port)}
-	d := &tls.Dialer{
-		NetDialer: &net.Dialer{Timeout: 10 * time.Second},
-		// Verification happens below, so an invalid certificate is still
-		// recorded with its details instead of just failing the handshake.
-		Config: &tls.Config{InsecureSkipVerify: true, ServerName: host},
+	var d Dialer = &net.Dialer{}
+	if o.Dialer != nil {
+		d = o.Dialer
 	}
-	conn, err := d.DialContext(ctx, "tcp", tp.Address)
+	ctx, cancel := context.WithTimeout(ctx, 10*time.Second) // dial and handshake
+	defer cancel()
+	raw, err := d.DialContext(ctx, "tcp", tp.Address)
 	if err != nil {
 		tp.DialError = err.Error()
 		return tp
 	}
+	// Verification happens below, so an invalid certificate is still
+	// recorded with its details instead of just failing the handshake.
+	conn := tls.Client(raw, &tls.Config{InsecureSkipVerify: true, ServerName: host})
 	defer conn.Close()
-	certs := conn.(*tls.Conn).ConnectionState().PeerCertificates
+	if err := conn.HandshakeContext(ctx); err != nil {
+		tp.DialError = err.Error()
+		return tp
+	}
+	certs := conn.ConnectionState().PeerCertificates
 	if len(certs) == 0 {
 		tp.VerifyError = "no certificate presented"
 		return tp

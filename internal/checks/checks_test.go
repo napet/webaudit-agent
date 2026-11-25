@@ -311,7 +311,8 @@ func contactCapture(site *testsite.Server, forms []capture.Form, console []strin
 func TestContactFormPassive(t *testing.T) {
 	site := testsite.Start("brokenform")
 	defer site.Close()
-	opts := ProbeOptions{HTTP: safehttp.New(safehttp.Options{}), Now: now}
+	// form.invalid fails as not found without asking a real resolver.
+	opts := ProbeOptions{HTTP: safehttp.New(safehttp.Options{Transport: testsite.LocalOnlyTransport()}), Dialer: testsite.LocalOnly{}, Now: now}
 
 	t.Run("action returns 404", func(t *testing.T) {
 		c := contactCapture(site, []capture.Form{{Action: "/contact.php", ActionURL: site.URL + "/contact.php", Method: "post", Textarea: true, Email: true}}, nil)

@@ -38,6 +38,7 @@ type Pipeline struct {
 	SnapshotRoot string           // "" disables snapshot writing
 	Now          func() time.Time // default time.Now
 	ProbeRoots   *x509.CertPool   // nil: system roots
+	ProbeDialer  checks.Dialer    // nil: a net.Dialer; tests keep the TLS probe on the machine
 	Log          func(format string, args ...any)
 }
 
@@ -83,7 +84,7 @@ func (p *Pipeline) Run(ctx context.Context, siteURL string) (*report.Report, err
 		}
 		snap.Capture = c
 		p.logf("probes: checking HTTPS and form endpoints")
-		snap.Probes = checks.Probe(ctx, checks.ProbeOptions{HTTP: p.HTTP, Roots: p.ProbeRoots, Now: snap.Meta.Timestamp}, siteURL, c)
+		snap.Probes = checks.Probe(ctx, checks.ProbeOptions{HTTP: p.HTTP, Roots: p.ProbeRoots, Dialer: p.ProbeDialer, Now: snap.Meta.Timestamp}, siteURL, c)
 		return nil
 	})
 	if err := g.Wait(); err != nil {
